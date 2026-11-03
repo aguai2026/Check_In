@@ -9,6 +9,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox') # 解决DevToolsActivePort文件不存在的报错
@@ -19,7 +21,8 @@ chrome_options.add_argument('--headless') # 浏览器不提供可视化页面. l
 def get_web_driver():
     chromedriver = "/usr/bin/chromedriver"
     os.environ["webdriver.chrome.driver"] = chromedriver
-    driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=chrome_options)
+    service = Service(executable_path=chromedriver)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.implicitly_wait(10) # 所有的操作都可以最长等待10s
     return driver
 
