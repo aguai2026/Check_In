@@ -4,6 +4,8 @@ from util import *
 # password = sys.argv[2] # 登录密码
 img_path = os.getcwd() + "/1.png"
 
+driver = None
+
 @retry(stop_max_attempt_number=5)
 def freedoor():
     try:
@@ -19,7 +21,9 @@ def freedoor():
     except:
         raise
     finally:
-        driver.quit()
+        if driver is not None:
+            driver.quit()
+        
 
 if __name__ == '__main__':
     freedoor()
