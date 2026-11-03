@@ -1,4 +1,9 @@
 from util import *
+import sys
+
+if len(sys.argv) < 3:
+    print("Usage: python freedoor.py <username> <password>")
+    sys.exit(1)
 
 username = sys.argv[1] # 登录账号
 password = sys.argv[2] # 登录密码
