@@ -45,4 +45,10 @@ jobs:
           # chmod -R 777 /usr/bin/chromedriver
           # python ./gamekegs.py ${{ secrets.GAMEKEGS_USERNAME }} ${{ secrets.GAMEKEGS_PASSWORD }}
           python ./freedoor.py ${{ secrets.FREEDOOR_USERNAME }} ${{ secrets.FREEDOOR_PASSWORD }}
-          
+
+      - name: Upload Error Screenshot
+        if: failure() # 只有在 Working 失败时才运行
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-screenshot
+          path: error_screenshot.png
