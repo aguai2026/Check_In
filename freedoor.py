@@ -9,11 +9,12 @@ def freedoor():
     try:
         driver = get_web_driver()
         driver.get("https://freedoor.vip/auth/login")
-        driver.find_element_by_xpath("//*[@id='email']").send_keys("2038386045@qq.com")
-        driver.find_element_by_xpath("//*[@id='password']").send_keys("Fdv.2026")
-        driver.find_element_by_xpath("//*[@id='login-btn']").click()
+        driver.find_element(By.xpath, "//*[@id='email']").send_keys("2038386045@qq.com")
+        driver.find_element(By.xpath, "//*[@id='password']").send_keys("Fdv.2026")
+        driver.find_element(By.xpath, "//*[@id='login-btn']").click()
 
-        driver.find_element_by_xpath("//*[@id='check-in']").click()
+
+        driver.find_element(By.xpath, "//*[@id='check-in']").click()
         print('freedoor签到成功')
     except:
         raise
