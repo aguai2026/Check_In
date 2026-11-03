@@ -1,8 +1,4 @@
 from util import *
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-import time
 
 # username = sys.argv[1] # 登录账号
 # password = sys.argv[2] # 登录密码
@@ -21,7 +17,7 @@ def freedoor():
                 EC.presence_of_element_located((By.XPATH, "//*[@id='email']"))
             )
             email_input.send_keys("2038386045@qq.com")
-    except Exception as e:
+        except Exception as e:
         # 2. 如果找不到，立刻保存一张截图，并打印当前网页的标题
         print("=== 错误：找不到邮箱输入框，已截图 ===")
         driver.save_screenshot("error_screenshot.png")
