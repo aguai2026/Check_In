@@ -1,12 +1,7 @@
 from util import *
-import sys
 
-if len(sys.argv) < 3:
-    print("Usage: python freedoor.py <username> <password>")
-    sys.exit(1)
-
-username = sys.argv[1] # 登录账号
-password = sys.argv[2] # 登录密码
+# username = sys.argv[1] # 登录账号
+# password = sys.argv[2] # 登录密码
 img_path = os.getcwd() + "/1.png"
 
 @retry(stop_max_attempt_number=5)
@@ -14,8 +9,8 @@ def freedoor():
     try:
         driver = get_web_driver()
         driver.get("https://freedoor.vip/auth/login")
-        driver.find_element_by_xpath("//*[@id='email']").send_keys(username)
-        driver.find_element_by_xpath("//*[@id='password']").send_keys(password)
+        driver.find_element_by_xpath("//*[@id='email']").send_keys("2038386045@qq.com")
+        driver.find_element_by_xpath("//*[@id='password']").send_keys("Fdv.2026")
         driver.find_element_by_xpath("//*[@id='login-btn']").click()
 
         driver.find_element_by_xpath("//*[@id='check-in']").click()
